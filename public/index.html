@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b61e32">
+  <meta name="description" content="A little place for big marketing ideas. Unbox inspiration, collect your favorites, and make something good.">
+  <meta property="og:title" content="The Idea Shelf — a little place for big ideas">
+  <meta property="og:description" content="A happy little corner for curious marketers, creative thinkers, and ideas worth keeping.">
+  <title>The Idea Shelf — A little place for big ideas</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/bookman-demi.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/ideas.js"></script>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="announcement"><span aria-hidden="true">✦</span> A little club for curious minds &amp; big ideas <span aria-hidden="true">✦</span></div>
+  <header class="site-header">
+    <div class="nav-inner wrap">
+      <a class="wordmark" href="#top" aria-label="The Idea Shelf, home">THE IDEA SHELF<span class="logo-spark" aria-hidden="true">✷</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#explore">Explore</a><a href="#shelf">The Shelf <span class="nav-count" data-save-count>0</span></a><a href="#club">The Club</a><a href="#about">About</a>
+      </nav>
+      <a class="btn btn-red nav-cta" href="#club">Visit the club <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="#explore">Explore</a><a href="#shelf">The Shelf <span data-save-count>0</span></a><a href="#club">The Club</a><a href="#about">About</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div class="hero-inner wrap">
+        <div class="hero-copy">
+          <span class="eyebrow pink-pill"><span aria-hidden="true">✦</span> A CLUB FOR CURIOUS MARKETERS</span>
+          <h1 id="hero-heading">A little place<br>for <em>big ideas.</em></h1>
+          <p>Unbox inspiration. Collect good ideas.<br class="desktop-break"> Make marketing a little more fun.</p>
+          <div class="hero-actions"><a class="btn btn-red" href="#explore">Explore the shelf <span aria-hidden="true">↗</span></a><button class="text-link" data-open-daily>Open today’s idea <span aria-hidden="true">→</span></button></div>
+          <div class="hero-note"><span class="note-star" aria-hidden="true">✳</span> A happy little corner of the internet</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="hero-orbit orbit-one">✦</span><span class="hero-orbit orbit-two">♡</span><span class="hero-orbit orbit-three">✳</span>
+          <div class="hero-circle"></div><img src="/assets/hero.webp" alt="" fetchpriority="high">
+          <span class="hero-sticker">GOOD IDEAS<br>LIVE HERE <b>↗</b></span>
+        </div>
+      </div>
+      <div class="hero-floor"></div>
+    </section>
+
+    <section class="featured wrap" aria-labelledby="featured-heading">
+      <div class="section-heading"><div><span class="overline">A LITTLE SOMETHING FOR YOUR BRAIN</span><h2 id="featured-heading">Good ideas, <em>freshly unboxed.</em></h2></div><a class="arrow-link" href="#explore">View all ideas <span aria-hidden="true">↗</span></a></div>
+      <div class="featured-grid" id="featured-grid"></div>
+      <div class="features-caption"><span>✳ &nbsp; FOR THE IDEAS YOU CAN’T STOP THINKING ABOUT</span><span>01 — THE STARTER COLLECTION</span></div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><span>GOOD IDEAS LOVE COMPANY <b>✦</b> LITTLE THINGS, BIG THINKING <b>✦</b> MAKE SOMETHING GOOD <b>✦</b> GOOD IDEAS LOVE COMPANY <b>✦</b> LITTLE THINGS, BIG THINKING</span></div>
+
+    <section class="intro wrap" aria-labelledby="intro-heading">
+      <div class="intro-stamp" aria-hidden="true"><span>✳</span><small>MADE FOR<br>CURIOUS MINDS</small></div>
+      <div><span class="overline">HI, YOU FOUND US</span><h2 id="intro-heading">Ideas are better<br><em>when they’re shared.</em></h2></div>
+      <div class="intro-text"><p>For the marketers with too many tabs open, the creatives collecting little sparks, and anyone who’s ever thought, “there has to be a more interesting way to do this.”</p><p>Think of this as your happy place for finding the next good thing to try. Come curious; leave with an idea.</p><a class="arrow-link" href="#about">A little more about us ↗</a></div>
+    </section>
+
+    <section class="explore-section" id="explore" aria-labelledby="explore-heading">
+      <div class="wrap">
+        <div class="section-heading explore-heading"><div><span class="overline">THE COLLECTION / NO. 01</span><h2 id="explore-heading">The idea <em>shelf.</em></h2><p>Pick a little spark. Make it your own.</p></div><button class="btn btn-outline" data-open-random>Surprise me <span aria-hidden="true">✦</span></button></div>
+        <div class="explore-controls">
+          <div class="filter-list" aria-label="Filter ideas by category" id="filters"></div>
+          <label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search ideas</span><input type="search" id="search" placeholder="Find an idea..." autocomplete="off"></label>
+        </div>
+        <div class="results-info"><span id="results-count" aria-live="polite"></span><span>MADE TO BE USED, NOT JUST SAVED <span aria-hidden="true">↗</span></span></div>
+        <div class="ideas-grid" id="ideas-grid"></div>
+        <p class="empty-results" id="empty-results" hidden>No ideas found. Try another search or category. <span aria-hidden="true">✿</span></p>
+        <div class="center"><button class="btn btn-outline load-more" id="load-more">Show me more <span aria-hidden="true">↓</span></button></div>
+      </div>
+    </section>
+
+    <section class="unbox-section wrap" aria-labelledby="unbox-heading">
+      <div class="unbox-visual"><div class="unbox-aura"></div><img src="/assets/hero.webp" alt="An original strawberry-capped character peeking out of a striped mystery box" loading="lazy"><span class="round-badge">A LITTLE<br>SURPRISE<br>FOR YOU ✦</span></div>
+      <div class="unbox-copy"><span class="overline">CAN’T DECIDE? THAT’S OKAY.</span><h2 id="unbox-heading">Leave it to<br><em>the little box.</em></h2><p>Some of the best ideas are the ones you didn’t know you were looking for. Give the box a tap and see what pops up.</p><button class="btn btn-red" data-open-random>Unbox a surprise <span aria-hidden="true">✦</span></button><small>Free ideas, zero pressure, infinite possibilities.</small></div>
+    </section>
+
+    <section class="shelf-section" id="shelf" aria-labelledby="shelf-heading"><div class="wrap">
+      <div class="section-heading"><div><span class="overline">A PLACE FOR THE KEEPERS</span><h2 id="shelf-heading">Your little <em>idea shelf.</em></h2><p>Save the ones you love. Come back when you need them.</p></div><span class="shelf-label"><span data-save-count>0</span> SAVED <span aria-hidden="true">♡</span></span></div>
+      <div class="saved-grid" id="saved-grid"></div>
+      <div class="saved-empty" id="saved-empty"><span class="empty-heart" aria-hidden="true">♡</span><div><h3>A little room for big ideas.</h3><p>Your shelf is waiting. Tap the heart on any idea and it’ll be here when you need it.</p><a class="arrow-link" href="#explore">Find your first idea ↗</a></div></div>
+      <p class="storage-note">Your shelf is saved in this browser, on this device. <span aria-hidden="true">✿</span></p>
+    </div></section>
+
+    <section class="club-section" id="club" aria-labelledby="club-heading"><div class="wrap club-layout">
+      <div class="club-copy"><span class="overline">WELCOME TO THE CLUB</span><h2 id="club-heading">A little less scrolling.<br><em>A lot more making.</em></h2><p>Consider this your invitation to play with an idea, make something imperfect, and tell a friend about it.</p><p>Want a place to start? Make yourself a mini creative brief, then see where it takes you.</p><div class="club-note"><span aria-hidden="true">✳</span><div><strong>THE CLUB IS TAKING SHAPE</strong><br>Good ideas first. More ways to connect coming later.</div></div></div>
+      <div class="brief-card"><span class="paperclip" aria-hidden="true">✿</span><div class="brief-top"><span>THE LITTLE BRIEF MAKER</span><span>✦ NO. 01</span></div><h3>Make something<br>unexpected.</h3><p>Choose a starting point, then let the shelf give you a tiny creative challenge.</p><label for="brief-type">WHAT ARE WE MAKING FOR?</label><select id="brief-type"><option value="random">Surprise me</option><option value="cafe">A neighborhood café</option><option value="beauty">A beauty brand</option><option value="service">A local service business</option><option value="creator">An independent creator</option><option value="nonprofit">A community organization</option></select><button class="btn btn-red" id="generate-brief">Make my brief <span aria-hidden="true">✦</span></button><div class="brief-output" id="brief-output" aria-live="polite" hidden><span class="overline">YOUR LITTLE CREATIVE BRIEF</span><p id="brief-text"></p><button class="text-link" id="copy-brief">Copy my brief ↗</button></div></div>
+    </div></section>
+
+    <section class="about-section wrap" id="about" aria-labelledby="about-heading"><div class="about-card"><div><span class="overline">A NOTE FROM THE SHELF</span><h2 id="about-heading">Little things can<br>lead to <em>big things.</em></h2></div><div><p>Marketing can be a lot. We made a little corner for ideas that feel worth getting excited about again.</p><p>Take what sparks something, make it your own, and pass the good stuff along.</p><a class="arrow-link" href="#explore">Find your next idea ↗</a></div><div class="about-flower" aria-hidden="true">✿</div></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><div><a class="footer-logo" href="#top">THE IDEA SHELF<span aria-hidden="true"> ✷</span></a><p>Made for marketers who love a little inspiration.</p></div><div class="footer-links"><a href="#explore">Explore</a><a href="#shelf">Your shelf</a><a href="#club">The club</a><a href="#about">About</a></div><div class="footer-bottom"><span>AN INDEPENDENT CREATIVE PROJECT <span aria-hidden="true">✳</span></span><span>KEEP MAKING GOOD THINGS.</span></div></div></footer>
+  <dialog class="idea-dialog" id="idea-dialog" aria-labelledby="dialog-title"><div class="dialog-body" id="dialog-body"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">Please enable JavaScript to browse and save ideas.</div></noscript>
+</body>
+</html>

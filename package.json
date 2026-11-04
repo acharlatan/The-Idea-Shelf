@@ -1,0 +1,9 @@
+{
+  "name": "the-idea-shelf",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "check": "node --check public/app.js && node --check public/ideas.js"
+  }
+}

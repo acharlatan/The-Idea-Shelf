@@ -1,0 +1,5 @@
+dist/
+.openai/
+generated_images/
+upload/
+.DS_Store
