@@ -14,8 +14,10 @@
   <script defer src="/ideas.js"></script>
   <script defer src="/new-ideas.js"></script>
   <script defer src="/app.js"></script>
+  <script defer src="/experience.js"></script>
 </head>
 <body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="announcement"><span aria-hidden="true">✦</span> A little place for curious minds &amp; big ideas <span aria-hidden="true">✦</span></div>
   <header class="site-header">
@@ -33,6 +35,7 @@
   </header>
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-heading">
+      <span class="hero-ghost" aria-hidden="true">IDEAS</span>
       <div class="hero-inner wrap">
         <div class="hero-copy">
           <span class="eyebrow pink-pill"><span aria-hidden="true">✦</span> AN IDEA LIBRARY FOR CURIOUS MARKETERS</span>
@@ -40,10 +43,11 @@
           <p>Discover practical sparks, collect your favorites,<br class="desktop-break"> and turn a good idea into something real.</p>
           <div class="hero-actions"><a class="btn btn-red" href="#explore">Explore the shelf <span aria-hidden="true">↗</span></a><button class="text-link" data-open-daily>Open today’s idea <span aria-hidden="true">→</span></button></div>
           <div class="hero-note"><span class="note-star" aria-hidden="true">✳</span> A happy little corner of the internet</div>
+          <div class="hero-index" aria-label="Ways to explore"><a href="#explore"><small>01 / DISCOVER</small><span>Find a spark ↗</span></a><a href="#shelf"><small>02 / COLLECT</small><span>Keep the good ones ↗</span></a><a href="#club"><small>03 / MAKE</small><span>Build a little brief ↗</span></a></div>
         </div>
         <div class="hero-art" aria-hidden="true">
           <span class="hero-orbit orbit-one">✦</span><span class="hero-orbit orbit-two">♡</span><span class="hero-orbit orbit-three">✳</span>
-          <div class="hero-circle"></div><img src="/assets/hero.webp" alt="" fetchpriority="high">
+          <div class="hero-circle"></div><div class="hero-art-label" aria-hidden="true">THE IDEA SHELF<br><b>CREATIVE GOODS</b><span>✳</span></div><div class="hero-postcard postcard-one" aria-hidden="true"><img src="/assets/ideas/creative-recipe.webp" alt=""><span>A LITTLE CREATIVE RESET</span></div><div class="hero-postcard postcard-two" aria-hidden="true"><img src="/assets/ideas/community-map.webp" alt=""><span>IDEAS WORTH KEEPING</span></div><img class="hero-mascot" src="/assets/hero.webp" alt="" fetchpriority="high"><div class="hero-edition" aria-hidden="true">THE<br>IDEA<br>DEPT.<span>✦</span></div>
           <span class="hero-sticker">GOOD IDEAS<br>LIVE HERE <b>↗</b></span>
         </div>
       </div>
@@ -51,7 +55,7 @@
     </section>
 
     <section class="featured wrap" aria-labelledby="featured-heading">
-      <div class="section-heading"><div><span class="overline">A LITTLE SOMETHING FOR YOUR BRAIN</span><h2 id="featured-heading">Good ideas, <em>freshly unboxed.</em></h2></div><a class="arrow-link" href="#explore">View all ideas <span aria-hidden="true">↗</span></a></div>
+      <div class="section-heading"><div><span class="overline">THE GOOD IDEA DEPARTMENT / EST. FOR CURIOUS MINDS</span><h2 id="featured-heading">Good ideas, <em>freshly unboxed.</em></h2></div><a class="arrow-link" href="#explore">View all ideas <span aria-hidden="true">↗</span></a></div>
       <div class="featured-grid" id="featured-grid"></div>
       <div class="features-caption"><span>✳ &nbsp; FOR THE IDEAS YOU CAN’T STOP THINKING ABOUT</span><span>01 — THE FRESHLY UNBOXED COLLECTION</span></div>
     </section>
