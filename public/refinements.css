@@ -1,0 +1,252 @@
+/* The Shelf, volume two: a tactile editorial system for the whole experience. */
+:root { --shelf-ink:#472b29; --shelf-red:#a91d32; --shelf-cream:#fff9ed; --shelf-line:#d9bfb0; }
+body { color:var(--shelf-ink); }
+.btn span { font-family:Arial,sans-serif; }
+::selection { background:#e9a8a6; color:#4a2525; }
+:focus-visible { outline:3px solid #812335; outline-offset:4px; }
+.site-header { background:rgba(255,250,240,.93); }
+.desktop-nav a { position:relative; }
+.desktop-nav a:after { content:""; position:absolute; height:2px; background:#b32338; left:24px; right:24px; bottom:-8px; transform:scaleX(0); transform-origin:left; transition:transform .2s ease; }
+.desktop-nav a:hover:after,.desktop-nav a:focus-visible:after { transform:scaleX(1); }
+.hero { background-color:#f8e8dd; background-image:radial-gradient(#b7645d16 1px,transparent 1px); background-size:10px 10px; }
+.hero-circle { background:#efc0b6; }
+.hero-postcard { box-shadow:0 12px 30px #743d3430; }
+.hero-floor { height:12px; background:repeating-linear-gradient(90deg,#a91d32 0 20px,#fff8ed 20px 40px); }
+.featured .section-heading h2,.collections-section .section-heading h2 { max-width:760px; }
+.feature-card { box-shadow:5px 6px 0 #e8d6c5; transition:transform .25s ease,box-shadow .25s ease; }
+.feature-card:hover { box-shadow:8px 12px 0 #dfc9b6; }
+.feature-art .idea-cover,.idea-art .idea-cover,.collection-tile img { transition:transform .55s cubic-bezier(.2,.7,.2,1); }
+.feature-card:hover .idea-cover,.idea-card:hover .idea-cover,.collection-tile:hover img { transform:scale(1.045); }
+.ticker { overflow:hidden; }
+.ticker span { display:block; width:max-content; }
+
+/* Collection covers become a small, browsable field guide. */
+.collections-section { padding-bottom:110px; }
+.collection-intro { display:flex; justify-content:space-between; border-top:1px solid #b9907f; border-bottom:1px solid #b9907f; padding:12px 2px; margin:0 0 20px; color:#99504b; font-size:10px; font-weight:800; letter-spacing:.14em; }
+.collection-intro b { font-size:16px; margin-left:8px; }
+.collection-grid { grid-template-columns:1.55fr 1fr 1fr; grid-template-rows:repeat(2,minmax(0,1fr)); gap:15px; }
+.collection-tile { position:relative; min-width:0; border:1px solid #cba999; border-radius:4px; box-shadow:5px 5px 0 #ead6c5; background:#fffaf1; padding-bottom:20px; }
+.collection-tile:first-child { grid-row:span 2; }
+.collection-tile img { aspect-ratio:2.05; object-fit:cover; margin-bottom:12px; }
+.collection-tile:first-child img { aspect-ratio:1.14; flex:1; min-height:0; }
+.collection-tile strong { font-size:clamp(21px,2vw,29px); }
+.collection-tile:first-child strong { font-size:clamp(29px,3vw,42px); }
+.collection-tile span:last-child { font-size:13px; }
+.collection-tile:first-child span:last-child { font-size:14px; }
+.collection-tile .collection-number { color:#ad2839; }
+.collection-tile:hover { box-shadow:8px 10px 0 #dfc4b2; }
+.collection-tile.is-selected { outline:3px solid #a91d32; outline-offset:3px; }
+
+/* The library is its own destination, with a warm high-contrast masthead. */
+.explore-section { background:#f4e8d9; padding:0 0 110px; border-top:0; }
+.explore-section:before { display:none; }
+.library-masthead { background:#9f2333; color:#fff7e9; min-height:380px; margin:0 0 42px; padding:58px 0; box-shadow:0 0 0 100vmax #9f2333; clip-path:inset(0 -100vmax); position:relative; display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center; overflow:hidden; isolation:isolate; }
+.library-masthead:before { content:"SHELF"; position:absolute; z-index:-1; right:-.02em; bottom:-.28em; font:700 clamp(140px,22vw,330px)/1 var(--display); letter-spacing:-.08em; color:#fff2d8; opacity:.08; }
+.library-copy { position:relative; z-index:2; }
+.library-kicker { font-size:10px; letter-spacing:.17em; font-weight:800; color:#f7d0be; }
+.library-copy h2 { font:700 clamp(58px,6.5vw,96px)/.95 var(--display); letter-spacing:-.065em; margin:22px 0; color:#fff9ed; }
+.library-copy h2 em { font-style:italic; color:#f4c9a3; }
+.library-copy p { max-width:420px; font-size:16px; color:#f7e4d7; line-height:1.6; }
+.library-surprise { background:#fff6e9; color:#8b2030; border:1px solid #fff6e9; margin-top:13px; }
+.library-surprise:hover { background:#f3d1c1; }
+.library-composition { position:relative; height:270px; max-width:520px; width:100%; justify-self:end; }
+.library-orbit { animation:slow-orbit 36s linear infinite; position:absolute; left:18%; top:8%; width:240px; height:240px; border:1px dashed #f9e2cf99; border-radius:50%; color:#f7d9ca; font-size:9px; font-weight:800; letter-spacing:.15em; text-align:center; padding-top:18px; transform:rotate(-19deg); }
+@keyframes slow-orbit { from { transform:rotate(-19deg); } to { transform:rotate(341deg); } }
+.library-print { position:absolute; width:37%; max-width:178px; padding:7px 7px 24px; background:#fff8eb; box-shadow:0 12px 24px #4b111c45; }
+.library-print img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; }
+.print-one { left:19%; top:20%; transform:rotate(-13deg); }
+.print-two { left:48%; top:5%; transform:rotate(11deg); }
+.library-stamp { position:absolute; bottom:6%; right:5%; width:96px; height:96px; border-radius:50%; display:grid; place-content:center; text-align:center; background:#f3d1a6; color:#8f2632; font:700 11px/1.1 var(--display); transform:rotate(12deg); box-shadow:0 0 0 6px #9f2333,0 0 0 7px #f5cdb9; }
+.library-stamp b { font-size:18px; }
+.library-number { position:absolute; right:0; bottom:19px; font-size:9px; font-weight:800; letter-spacing:.15em; color:#f6d4c8; }
+.explore-controls { border-top:0; padding:0; gap:18px; }
+.filter-list { gap:7px; }
+.filter-btn { min-height:42px; padding:10px 17px; border-color:#cdaea0; color:#795048; }
+.filter-btn.active,.filter-btn:hover { background:#a91d32; border-color:#a91d32; color:#fff9ee; }
+.search-box { border-color:#cdaea0; background:#fffaf2; min-height:48px; }
+.results-info { border-top:1px solid #d1b7a7; margin-top:24px; padding-top:16px; color:#8c594f; }
+.ideas-grid,.saved-grid { gap:24px; }
+.idea-card { background:#fffaf2; border:1px solid #d8c0af; border-radius:3px; box-shadow:5px 6px 0 #e2cbbb; }
+.idea-card:hover { transform:translateY(-5px); box-shadow:8px 11px 0 #d8bda9; }
+.idea-art.has-cover { aspect-ratio:1.28; }
+.idea-art .idea-cover { object-fit:cover; }
+.card-number { position:absolute; left:13px; top:13px; z-index:2; background:#fff9ed; border:1px solid #dbc4b4; padding:7px 9px; font-size:9px; letter-spacing:.12em; font-weight:800; color:#a32a37; box-shadow:2px 2px 0 #a95c4e30; }
+.idea-card-body { padding:20px 22px 21px; }
+.card-meta { color:#a22839; }
+.heart-btn { border:1px solid #e1c7ba; color:#a62538; font-size:20px; transition:background .2s,color .2s,transform .2s; }
+.heart-btn:hover { background:#f4d9d0; transform:scale(1.08); }
+.heart-btn.is-saved { background:#a62538; color:#fff; border-color:#a62538; }
+.idea-card h3 { font-size:clamp(23px,2.1vw,30px); line-height:1.08; }
+.idea-card p { color:#76584d; }
+.card-bottom { margin-top:auto; padding-top:16px; }
+.card-bottom button span { display:inline-block; transition:transform .2s; }
+.card-bottom button:hover span { transform:translate(3px,-3px); }
+.load-more { margin-top:18px; }
+
+/* A personal archive, even before the first item is saved. */
+.shelf-section { background:#efcfc6; background-image:radial-gradient(#a64d4413 1px,transparent 1px); background-size:9px 9px; padding:100px 0; }
+.shelf-section .section-heading h2 { font-size:clamp(40px,5vw,70px); }
+.shelf-label { background:#a32235; color:#fff8ed; border-color:#a32235; padding:12px 19px; }
+.shelf-index { display:flex; justify-content:space-between; gap:20px; margin:12px 0 20px; padding:12px 0; border-top:1px solid #b98279; border-bottom:1px solid #b98279; color:#8b3a3d; font-size:9px; font-weight:800; letter-spacing:.15em; }
+.shelf-index b { font-size:16px; margin-left:5px; }
+.saved-empty { display:grid; grid-template-columns:1.05fr 1fr; gap:6%; min-height:340px; border:1px solid #c9998c; border-radius:4px; background:#fff9ef; padding:25px 7% 25px 25px; text-align:left; box-shadow:7px 8px 0 #d9a99d; overflow:hidden; }
+.shelf-art { position:relative; min-height:280px; background:#f5ded1; overflow:hidden; }
+.shelf-art:before { content:""; position:absolute; width:210px; height:210px; border:1px solid #cb968b; border-radius:50%; left:50%; top:50%; transform:translate(-50%,-50%); box-shadow:0 0 0 20px #f5ded1,0 0 0 21px #e4bdb1; }
+.shelf-art img { position:absolute; width:33%; max-width:155px; aspect-ratio:1/1.1; object-fit:cover; border:7px solid #fffaf0; border-bottom-width:22px; box-shadow:0 10px 20px #87564b30; }
+.shelf-art-one { left:19%; top:21%; transform:rotate(-12deg); }
+.shelf-art-two { right:19%; top:16%; transform:rotate(10deg); }
+.shelf-heart { position:absolute; left:46%; bottom:10%; display:grid; place-items:center; width:64px; height:64px; border-radius:50%; background:#ad2438; color:#fff4eb; font-size:27px; box-shadow:0 0 0 5px #f5ded1; }
+.shelf-art-caption { position:absolute; bottom:14px; left:16px; color:#a1534c; font-size:9px; font-weight:800; line-height:1.3; letter-spacing:.1em; }
+.shelf-empty-copy h3 { font:700 clamp(32px,3.5vw,50px)/1 var(--display); letter-spacing:-.05em; margin:15px 0; }
+.shelf-empty-copy h3 em { color:#ae2638; }
+.shelf-empty-copy p { font-size:15px; line-height:1.7; max-width:340px; }
+.shelf-empty-copy .btn { display:inline-flex; margin-top:13px; }
+.shelf-backup { background:#f9e9df; border-color:#cba399; border-radius:3px; box-shadow:4px 5px 0 #dfb7ab; padding:26px 30px; }
+.shelf-backup strong { font-size:23px; }
+
+/* The club is a working studio, not a generic form. */
+.club-section { background:#fdf6e8; padding:120px 0; overflow:hidden; }
+.club-layout { grid-template-columns:1fr .92fr; align-items:start; gap:9%; }
+.club-copy { max-width:none; padding-top:18px; }
+.club-copy h2 { font-size:clamp(42px,4.6vw,67px); line-height:1; }
+.club-copy>p { max-width:480px; font-size:15px; line-height:1.75; }
+.club-workshop { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:center; margin-top:35px; }
+.workshop-art { position:relative; max-width:250px; padding:9px 9px 28px; background:#fffaf1; border:1px solid #ddc2b3; box-shadow:5px 6px 0 #ead7c4; transform:rotate(-4deg); }
+.workshop-art img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
+.workshop-art span { position:absolute; bottom:6px; right:-15px; display:grid; place-content:center; width:75px; height:75px; border-radius:50%; background:#d98e79; color:#fff8ef; text-align:center; font-size:8px; font-weight:800; line-height:1.2; letter-spacing:.1em; transform:rotate(12deg); }
+.workshop-kicker { display:block; margin-bottom:13px; font-size:9px; font-weight:800; letter-spacing:.12em; color:#a84545; }
+.workshop-steps div { display:flex; gap:13px; align-items:baseline; border-top:1px solid #dcc5b4; padding:13px 0; font-size:13px; font-weight:700; }
+.workshop-steps b { color:#ae2739; font-size:10px; letter-spacing:.08em; }
+.club-note { max-width:500px; }
+.brief-card { position:relative; border:1px solid #bd8e7e; border-radius:3px; background:#f7e3d5; box-shadow:11px 11px 0 #e0c2b1; padding:42px; }
+.brief-card:before { content:""; display:block; position:absolute; inset:8px; pointer-events:none; border:1px solid #dfbeb0; }
+.brief-card>* { position:relative; }
+.brief-card .paperclip { z-index:2; }
+.brief-top { border-bottom:1px solid #d2afa0; padding-bottom:15px; }
+.brief-card h3 { font-size:clamp(35px,3.5vw,50px); letter-spacing:-.05em; }
+.brief-source { background:#fff9f1; border-radius:2px; border-color:#c68e7f; }
+.brief-card input,.brief-card select { background:#fffaf4; border-radius:2px; border-color:#cda99b; }
+.brief-card input:focus,.brief-card select:focus { outline:2px solid #9f2938; outline-offset:1px; }
+.brief-card #generate-brief { width:100%; justify-content:center; margin-top:5px; }
+.brief-output { border-left:4px solid #a92538; background:#fffaf1; padding:18px; margin-top:20px; }
+
+/* The note and footer end with the same crafted, graphic vocabulary. */
+.about-section { padding-bottom:100px; }
+.about-card { grid-template-columns:1.1fr .9fr .65fr; gap:4%; padding:65px 6%; background:#f1e1ad; border:1px solid #d6bd77; border-radius:3px; box-shadow:7px 8px 0 #e3ca88; }
+.about-card h2 { font-size:clamp(36px,3.7vw,55px); line-height:1; }
+.about-copy { position:relative; z-index:1; }
+.about-copy p { font-size:15px; line-height:1.7; }
+.about-signature { display:inline-block; margin-top:18px; border-top:1px solid #beaa73; padding-top:15px; color:#92503e; font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.about-visual { padding:7px 7px 23px; border:1px solid #d0b879; background:#fff8e8; transform:rotate(7deg); box-shadow:5px 8px 0 #ddc47e; }
+.about-visual img { display:block; width:100%; aspect-ratio:1; object-fit:cover; }
+.about-visual span { display:block; padding-top:9px; color:#a64241; font-size:9px; font-weight:800; line-height:1.2; letter-spacing:.12em; text-align:center; }
+.about-flower { opacity:.45; }
+.site-footer { background:#852034; padding:70px 0 25px; }
+.footer-inner { gap:35px; }
+.footer-logo { color:#fff5e8; }
+.footer-links a { border-bottom:1px solid #d69591; padding-bottom:4px; }
+.footer-bottom { border-top-color:#c47b7a; }
+
+/* A readable, art-directed idea detail, including the original notes and actions. */
+.idea-dialog { width:min(840px,calc(100% - 28px)); max-height:min(91vh,1000px); border:1px solid #cda99a; border-radius:4px; background:#fffaf1; box-shadow:0 30px 90px #30100d70; }
+.idea-dialog::backdrop { background:#3b1c1ccf; backdrop-filter:blur(5px); }
+.dialog-head,.dialog-head.with-cover { min-height:280px; padding:38px 42px; }
+.dialog-head h2 { font-size:clamp(38px,5vw,64px); line-height:.98; margin:22px 0; }
+.dialog-head.with-cover h2 { max-width:57%; }
+.dialog-cover { width:38%; object-fit:cover; border-left:8px solid #fffaf1; }
+.dialog-close { width:44px; height:44px; background:#fff9ef; box-shadow:2px 3px 0 #ae8275; }
+.dialog-content { padding:38px 42px 45px; }
+.dialog-lede { font-size:clamp(21px,2vw,27px); max-width:650px; }
+.dialog-content h3 { font-size:10px; letter-spacing:.15em; border-top:1px solid #dfc9b9; padding-top:22px; margin-top:26px; }
+.dialog-content p,.dialog-content li { font-size:15px; line-height:1.75; }
+.dialog-content ol { list-style:none; padding:0; counter-reset:steps; }
+.dialog-content li { counter-increment:steps; position:relative; padding-left:42px; margin:14px 0; }
+.dialog-content li:before { content:counter(steps,decimal-leading-zero); position:absolute; left:0; top:2px; color:#a8293c; font-size:11px; letter-spacing:.08em; font-weight:800; }
+.dialog-example { padding:20px; border-left:4px solid #b1283a; background:#f7eadb; border-radius:0; }
+.note-field { border-radius:2px; min-height:105px; }
+.dialog-actions { padding-top:8px; }
+
+@media (max-width:900px) {
+  .collection-grid { grid-template-columns:1.2fr 1fr; }
+  .collection-tile:first-child { grid-row:span 2; }
+  .collection-tile:last-child { grid-column:auto; }
+  .library-masthead { min-height:320px; }
+  .library-composition { height:235px; }
+  .library-orbit { width:200px; height:200px; }
+  .ideas-grid,.saved-grid { gap:15px; }
+  .club-layout { gap:6%; }
+  .club-workshop { gap:15px; }
+  .about-card { grid-template-columns:1fr 1fr; }
+  .about-visual { display:none; }
+}
+@media (max-width:650px) {
+  .hero-floor { height:8px; }
+  .collections-section { padding-bottom:75px; }
+  .collection-intro { font-size:8px; }
+  .collection-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; gap:12px; }
+  .collection-tile:first-child { grid-row:auto; grid-column:span 2; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto 1fr; padding:0; align-items:start; column-gap:10px; }
+  .collection-tile:first-child img { grid-row:1 / 4; aspect-ratio:1.1; height:100%; min-height:185px; margin:0; }
+  .collection-tile:first-child .collection-number { margin-top:22px; }
+  .collection-tile:first-child strong { font-size:25px; }
+  .collection-tile:first-child span:last-child { font-size:12px; }
+  .collection-tile:last-child { grid-column:auto; }
+  .collection-tile img,.collection-tile:last-child img { aspect-ratio:1.2; }
+  .collection-tile strong { font-size:20px; }
+  .collection-tile span:last-child { font-size:11px; }
+  .library-masthead { margin-bottom:28px; padding:45px 0 40px; min-height:0; grid-template-columns:1fr .85fr; gap:0; }
+  .library-copy h2 { font-size:clamp(45px,11vw,68px); margin:18px 0; }
+  .library-copy p { font-size:13px; }
+  .library-kicker { font-size:8px; letter-spacing:.1em; }
+  .library-surprise { min-height:42px; font-size:11px; padding:10px 14px; }
+  .library-composition { height:190px; margin-right:-12px; }
+  .library-orbit { width:145px; height:145px; left:2%; top:12%; font-size:7px; }
+  .library-print { width:48%; padding:4px 4px 15px; }
+  .print-one { left:1%; top:28%; }.print-two { left:39%; top:9%; }
+  .library-stamp { width:62px; height:62px; font-size:8px; right:0; bottom:6%; }.library-stamp b { font-size:13px; }
+  .library-number { right:0; bottom:13px; font-size:8px; }
+  .explore-section { padding-bottom:75px; }
+  .explore-controls { gap:10px; }
+  .filter-list { margin-right:-16px; padding-bottom:8px; }
+  .filter-btn { min-height:40px; }
+  .results-info { margin-top:18px; }
+  .ideas-grid,.saved-grid { gap:12px; }
+  .idea-card-body { padding:14px; }
+  .idea-card h3 { font-size:19px; }
+  .idea-art.has-cover { aspect-ratio:1.07; }
+  .card-number { font-size:7px; top:7px; left:7px; padding:5px; }
+  .heart-btn { width:34px; height:34px; font-size:18px; }
+  .card-bottom { gap:4px; }
+  .shelf-section { padding:75px 0; }
+  .shelf-section .section-heading h2 { font-size:38px; }
+  .shelf-index { font-size:8px; }.shelf-index span:last-child { text-align:right; }
+  .saved-empty { grid-template-columns:1fr; padding:12px 12px 28px; gap:25px; }
+  .shelf-art { min-height:220px; }.shelf-art img { max-width:130px; }
+  .shelf-empty-copy { padding:0 12px; }.shelf-empty-copy h3 { font-size:36px; }
+  .shelf-backup { padding:22px; }
+  .club-section { padding:80px 0; }
+  .club-layout { grid-template-columns:1fr; gap:40px; }
+  .club-copy h2 { font-size:39px; }
+  .club-workshop { grid-template-columns:1fr 1.1fr; }
+  .workshop-steps div { font-size:12px; }
+  .brief-card { padding:28px; }
+  .brief-card h3 { font-size:36px; }
+  .about-section { padding-bottom:75px; }
+  .about-card { grid-template-columns:1fr; gap:10px; padding:38px 27px; }
+  .about-card h2 { font-size:38px; }
+  .site-footer { padding-top:55px; }
+  .dialog-head,.dialog-head.with-cover { min-height:210px; padding:27px 24px; }
+  .dialog-head h2 { font-size:clamp(30px,8vw,42px); }
+  .dialog-head.with-cover h2 { max-width:60%; }
+  .dialog-cover { width:34%; border-left-width:4px; }
+  .dialog-content { padding:26px 24px 32px; }
+}
+@media (max-width:370px) {
+  .library-masthead { grid-template-columns:1fr; padding-bottom:48px; }
+  .library-composition { display:none; }
+  .shelf-label { padding:9px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .library-orbit { animation:none; }
+  .feature-card:hover,.idea-card:hover,.collection-tile:hover { transform:none; }
+  .feature-card:hover .idea-cover,.idea-card:hover .idea-cover,.collection-tile:hover img { transform:none; }
+}
