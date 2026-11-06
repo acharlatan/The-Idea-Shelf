@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+await import('../public/backup.js');
+const {merge}=globalThis.ShelfBackup;
+const ids={ideas:['question-wall','creative-recipe'],guides:['creative-reset']};
+const current={saved:['creative-recipe'],notes:{'creative-recipe':'Existing note'},projects:[{id:'existing',name:'Existing project',notes:'Keep me'}],exercises:{'creative-reset':['Existing answer']},challenges:['first'],brief:null,studio:null};
+const old={kind:'the-idea-shelf-backup',version:1,saved:['question-wall','unknown'],notes:{'question-wall':'Old note','creative-recipe':'Do not overwrite'},brief:{text:'An older brief'}};
+const merged=merge(old,current,ids);
+assert.deepEqual(merged.saved,['creative-recipe','question-wall']);assert.equal(merged.notes['creative-recipe'],'Existing note');assert.equal(merged.notes['question-wall'],'Old note');assert.equal(merged.brief.text,'An older brief');assert.equal(merged.projects[0].notes,'Keep me');
+const modern={...old,projects:[{id:'existing',name:'Conflicting project',notes:'Do not overwrite'},{id:'new',name:'New project',ideaIds:['question-wall','bad'],tasks:[{id:'task',text:'A task',done:true}],plans:[]}],exercises:{'creative-reset':['Do not overwrite']},challenges:['second'],studio:{tool:'launch'}};
+const more=merge(modern,current,ids);assert.equal(more.projects[0].name,'Existing project');assert.deepEqual(more.projects[1].ideaIds,['question-wall']);assert.equal(more.projects[1].tasks[0].done,true);assert.deepEqual(more.exercises['creative-reset'],['Existing answer']);assert.deepEqual(more.challenges,['first','second']);assert.equal(more.studio.tool,'launch');
+assert.throws(()=>merge({kind:'wrong'},current,ids),/backup/);
+console.log('Validated legacy and current backup merging, conflict preservation, and invalid input.');
