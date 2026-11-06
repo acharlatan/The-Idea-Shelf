@@ -12,11 +12,12 @@
   <link rel="preload" href="/assets/bookman-demi.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="/styles.css">
   <script defer src="/ideas.js"></script>
+  <script defer src="/new-ideas.js"></script>
   <script defer src="/app.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="announcement"><span aria-hidden="true">✦</span> A little club for curious minds &amp; big ideas <span aria-hidden="true">✦</span></div>
+  <div class="announcement"><span aria-hidden="true">✦</span> A little place for curious minds &amp; big ideas <span aria-hidden="true">✦</span></div>
   <header class="site-header">
     <div class="nav-inner wrap">
       <a class="wordmark" href="#top" aria-label="The Idea Shelf, home">THE IDEA SHELF<span class="logo-spark" aria-hidden="true">✷</span></a>
@@ -34,9 +35,9 @@
     <section class="hero" id="top" aria-labelledby="hero-heading">
       <div class="hero-inner wrap">
         <div class="hero-copy">
-          <span class="eyebrow pink-pill"><span aria-hidden="true">✦</span> A CLUB FOR CURIOUS MARKETERS</span>
+          <span class="eyebrow pink-pill"><span aria-hidden="true">✦</span> AN IDEA LIBRARY FOR CURIOUS MARKETERS</span>
           <h1 id="hero-heading">A little place<br>for <em>big ideas.</em></h1>
-          <p>Unbox inspiration. Collect good ideas.<br class="desktop-break"> Make marketing a little more fun.</p>
+          <p>Discover practical sparks, collect your favorites,<br class="desktop-break"> and turn a good idea into something real.</p>
           <div class="hero-actions"><a class="btn btn-red" href="#explore">Explore the shelf <span aria-hidden="true">↗</span></a><button class="text-link" data-open-daily>Open today’s idea <span aria-hidden="true">→</span></button></div>
           <div class="hero-note"><span class="note-star" aria-hidden="true">✳</span> A happy little corner of the internet</div>
         </div>
@@ -52,7 +53,7 @@
     <section class="featured wrap" aria-labelledby="featured-heading">
       <div class="section-heading"><div><span class="overline">A LITTLE SOMETHING FOR YOUR BRAIN</span><h2 id="featured-heading">Good ideas, <em>freshly unboxed.</em></h2></div><a class="arrow-link" href="#explore">View all ideas <span aria-hidden="true">↗</span></a></div>
       <div class="featured-grid" id="featured-grid"></div>
-      <div class="features-caption"><span>✳ &nbsp; FOR THE IDEAS YOU CAN’T STOP THINKING ABOUT</span><span>01 — THE STARTER COLLECTION</span></div>
+      <div class="features-caption"><span>✳ &nbsp; FOR THE IDEAS YOU CAN’T STOP THINKING ABOUT</span><span>01 — THE FRESHLY UNBOXED COLLECTION</span></div>
     </section>
 
     <div class="ticker" aria-hidden="true"><span>GOOD IDEAS LOVE COMPANY <b>✦</b> LITTLE THINGS, BIG THINKING <b>✦</b> MAKE SOMETHING GOOD <b>✦</b> GOOD IDEAS LOVE COMPANY <b>✦</b> LITTLE THINGS, BIG THINKING</span></div>
@@ -63,9 +64,20 @@
       <div class="intro-text"><p>For the marketers with too many tabs open, the creatives collecting little sparks, and anyone who’s ever thought, “there has to be a more interesting way to do this.”</p><p>Think of this as your happy place for finding the next good thing to try. Come curious; leave with an idea.</p><a class="arrow-link" href="#about">A little more about us ↗</a></div>
     </section>
 
+    <section class="collections-section wrap" aria-labelledby="collections-heading">
+      <div class="section-heading"><div><span class="overline">A LITTLE DIRECTION FOR YOUR NEXT IDEA</span><h2 id="collections-heading">Browse by <em>mood &amp; mission.</em></h2><p>Five little collections, each made for a different kind of creative day.</p></div><button class="arrow-link collection-reset" data-collection="All" aria-pressed="true">Explore everything ↗</button></div>
+      <div class="collection-grid" aria-label="Themed idea collections">
+        <button class="collection-tile" data-collection="Listen &amp; learn" aria-pressed="false"><img src="/assets/ideas/question-wall.webp" alt="" loading="lazy"><span class="collection-number">01 / COMMUNITY</span><strong>Listen &amp; learn</strong><span>Start with the people you serve. ↗</span></button>
+        <button class="collection-tile" data-collection="Make a launch" aria-pressed="false"><img src="/assets/ideas/pop-up.webp" alt="" loading="lazy"><span class="collection-number">02 / CAMPAIGN</span><strong>Make a launch</strong><span>Give a good idea its moment. ↗</span></button>
+        <button class="collection-tile" data-collection="Make it useful" aria-pressed="false"><img src="/assets/ideas/day-diary.webp" alt="" loading="lazy"><span class="collection-number">03 / CONTENT</span><strong>Make it useful</strong><span>Share something worth keeping. ↗</span></button>
+        <button class="collection-tile" data-collection="Creative reset" aria-pressed="false"><img src="/assets/ideas/creative-recipe.webp" alt="" loading="lazy"><span class="collection-number">04 / CREATIVE</span><strong>Creative reset</strong><span>Find a fresh way in. ↗</span></button>
+        <button class="collection-tile" data-collection="Thoughtful touchpoints" aria-pressed="false"><img src="/assets/ideas/packaging-signature.webp" alt="" loading="lazy"><span class="collection-number">05 / BRANDING</span><strong>Thoughtful touchpoints</strong><span>Make the little moments matter. ↗</span></button>
+      </div>
+    </section>
+
     <section class="explore-section" id="explore" aria-labelledby="explore-heading">
       <div class="wrap">
-        <div class="section-heading explore-heading"><div><span class="overline">THE COLLECTION / NO. 01</span><h2 id="explore-heading">The idea <em>shelf.</em></h2><p>Pick a little spark. Make it your own.</p></div><button class="btn btn-outline" data-open-random>Surprise me <span aria-hidden="true">✦</span></button></div>
+        <div class="section-heading explore-heading"><div><span class="overline">THE COMPLETE COLLECTION / <span id="total-ideas"></span> IDEAS</span><h2 id="explore-heading">The idea <em>shelf.</em></h2><p>Find a little spark for whatever you are making next.</p></div><button class="btn btn-outline" data-open-random>Surprise me <span aria-hidden="true">✦</span></button></div>
         <div class="explore-controls">
           <div class="filter-list" aria-label="Filter ideas by category" id="filters"></div>
           <label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search ideas</span><input type="search" id="search" placeholder="Find an idea..." autocomplete="off"></label>
@@ -86,12 +98,19 @@
       <div class="section-heading"><div><span class="overline">A PLACE FOR THE KEEPERS</span><h2 id="shelf-heading">Your little <em>idea shelf.</em></h2><p>Save the ones you love. Come back when you need them.</p></div><span class="shelf-label"><span data-save-count>0</span> SAVED <span aria-hidden="true">♡</span></span></div>
       <div class="saved-grid" id="saved-grid"></div>
       <div class="saved-empty" id="saved-empty"><span class="empty-heart" aria-hidden="true">♡</span><div><h3>A little room for big ideas.</h3><p>Your shelf is waiting. Tap the heart on any idea and it’ll be here when you need it.</p><a class="arrow-link" href="#explore">Find your first idea ↗</a></div></div>
-      <p class="storage-note">Your shelf is saved in this browser, on this device. <span aria-hidden="true">✿</span></p>
+      <div class="shelf-backup"><div><strong>Keep your little collection safe.</strong><p>Your saved ideas, notes, and latest brief live in this browser on this device. Download a backup to move them or keep a copy.</p></div><div class="backup-actions"><button class="btn btn-outline" id="export-shelf">Download backup ↓</button><button class="text-link" id="import-shelf">Import a backup ↗</button><input id="import-shelf-file" type="file" accept="application/json,.json" hidden></div><small>Imports add saved ideas and keep any existing notes if the same idea has notes in both places.</small></div>
     </div></section>
 
     <section class="club-section" id="club" aria-labelledby="club-heading"><div class="wrap club-layout">
       <div class="club-copy"><span class="overline">WELCOME TO THE CLUB</span><h2 id="club-heading">A little less scrolling.<br><em>A lot more making.</em></h2><p>Consider this your invitation to play with an idea, make something imperfect, and tell a friend about it.</p><p>Want a place to start? Make yourself a mini creative brief, then see where it takes you.</p><div class="club-note"><span aria-hidden="true">✳</span><div><strong>THE CLUB IS TAKING SHAPE</strong><br>Good ideas first. More ways to connect coming later.</div></div></div>
-      <div class="brief-card"><span class="paperclip" aria-hidden="true">✿</span><div class="brief-top"><span>THE LITTLE BRIEF MAKER</span><span>✦ NO. 01</span></div><h3>Make something<br>unexpected.</h3><p>Choose a starting point, then let the shelf give you a tiny creative challenge.</p><label for="brief-type">WHAT ARE WE MAKING FOR?</label><select id="brief-type"><option value="random">Surprise me</option><option value="cafe">A neighborhood café</option><option value="beauty">A beauty brand</option><option value="service">A local service business</option><option value="creator">An independent creator</option><option value="nonprofit">A community organization</option></select><button class="btn btn-red" id="generate-brief">Make my brief <span aria-hidden="true">✦</span></button><div class="brief-output" id="brief-output" aria-live="polite" hidden><span class="overline">YOUR LITTLE CREATIVE BRIEF</span><p id="brief-text"></p><button class="text-link" id="copy-brief">Copy my brief ↗</button></div></div>
+      <div class="brief-card"><span class="paperclip" aria-hidden="true">✿</span><div class="brief-top"><span>THE LITTLE BRIEF MAKER</span><span>✦ NO. 02</span></div><h3>Make something<br>unexpected.</h3><p>Start with an idea, add a little context, and leave with a brief you can actually use.</p>
+        <div class="brief-source"><span id="brief-idea">STARTING WITH: A SURPRISE</span><button class="text-link" id="clear-brief-idea" hidden>Clear</button></div>
+        <label for="brief-type">WHAT ARE WE MAKING FOR?</label><select id="brief-type"><option value="random">Surprise me</option><option value="cafe">A neighborhood café</option><option value="beauty">A beauty brand</option><option value="service">A local service business</option><option value="creator">An independent creator</option><option value="nonprofit">A community organization</option></select>
+        <label for="brief-project">YOUR PROJECT OR BRAND <span>OPTIONAL</span></label><input id="brief-project" type="text" maxlength="140" placeholder="e.g. my neighborhood bakery">
+        <label for="brief-audience">WHO IS IT FOR? <span>OPTIONAL</span></label><input id="brief-audience" type="text" maxlength="140" placeholder="e.g. first-time workshop guests">
+        <label for="brief-goal">WHAT SHOULD IT HELP THEM DO? <span>OPTIONAL</span></label><input id="brief-goal" type="text" maxlength="140" placeholder="e.g. feel ready to book">
+        <label for="brief-format">WHAT ARE YOU MAKING?</label><select id="brief-format"><option value="">Surprise me</option><option value="a three-post mini campaign">Three-post campaign</option><option value="a short launch post">Launch post</option><option value="a behind-the-scenes story">Behind-the-scenes story</option><option value="an audience question">Audience question</option><option value="a postcard-style email">Postcard-style email</option></select>
+        <button class="btn btn-red" id="generate-brief">Make my brief <span aria-hidden="true">✦</span></button><div class="brief-output" id="brief-output" aria-live="polite" hidden><span class="overline">YOUR LITTLE CREATIVE BRIEF</span><p id="brief-text"></p><button class="text-link" id="copy-brief">Copy my brief ↗</button></div></div>
     </div></section>
 
     <section class="about-section wrap" id="about" aria-labelledby="about-heading"><div class="about-card"><div><span class="overline">A NOTE FROM THE SHELF</span><h2 id="about-heading">Little things can<br>lead to <em>big things.</em></h2></div><div><p>Marketing can be a lot. We made a little corner for ideas that feel worth getting excited about again.</p><p>Take what sparks something, make it your own, and pass the good stuff along.</p><a class="arrow-link" href="#explore">Find your next idea ↗</a></div><div class="about-flower" aria-hidden="true">✿</div></div></section>

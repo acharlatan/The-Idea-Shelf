@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "check": "node --check public/app.js && node --check public/ideas.js"
+    "check": "node --check public/app.js && node --check public/ideas.js && node --check public/new-ideas.js && node scripts/validate-content.mjs",
+    "dev": "python3 scripts/dev.py"
   }
 }
