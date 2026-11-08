@@ -36,3 +36,11 @@ Shared prompt direction: an original illustration for The Idea Shelf, a playful 
 | three-word-brand | Sun, cloud, and heart made of clay |
 | sensory-palette | Fabric, ceramic, flower, and color swatch |
 | service-handoff | Small package, blank care card, and cloth |
+
+## Department illustrations
+
+The original, transparent collectible illustrations for the Studio, reading room, and project boards were created with the built-in image generation tool and encoded as WebP. Their art direction uses tactile clay and paper, a cherry, pink, butter and lavender palette, soft dimensional lighting, no lettering, and no logos.
+
+- `public/assets/studio-toolbox.webp` — an open cherry-red artist's toolbox containing a pink notebook, yellow pencil, paper swatches, a cream star and a pink heart.
+- `public/assets/reading-stack.webp` — a stack of three small red, yellow and lavender field guides with a ribbon bookmark and paper tab.
+- `public/assets/project-clipboard.webp` — a pink clipboard with blank paper, a heart paperclip, a pencil and a lavender sticky note.

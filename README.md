@@ -12,9 +12,9 @@ The site uses static HTML, CSS, and JavaScript; no package installation or build
 - `public/studio.html`, `projects.html`, `shelf.html` — creative tools, project boards, saved ideas, and backup
 - `public/guides.html`, `guide.html`, `guides.js` — illustrated field guides and exercises
 - `public/club.html` — date-based and self-guided creative challenges
-- `public/v2.css`, `v2.js`, `backup.js` — shared design, interactions, and backup merging
+- `public/v2.css`, `editorial.css`, `v2.js`, `backup.js` — shared design, editorial styling, interactions, and backup merging
 - `public/ideas.js`, `new-ideas.js` — the original idea data; preserve IDs
-- `public/assets/ideas/` — the 30 original illustrated idea covers
+- `public/assets/ideas/` — the 30 original illustrated idea covers; `public/assets/` also includes original department illustrations and the licensed display font
 - `public/_headers`, `wrangler.jsonc` — security headers and existing Cloudflare configuration
 
 ## Data and compatibility
