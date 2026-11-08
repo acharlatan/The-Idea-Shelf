@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {access} from 'node:fs/promises';
+globalThis.window={};
+await import('../public/ideas.js'); await import('../public/new-ideas.js'); await import('../public/guides.js');
+await import('../public/playbooks-data.js'); await import('../public/playbook-model.js'); await import('../public/backup.js');
+const books=globalThis.SHELF_PLAYBOOKS, ideas=[...window.IDEAS,...window.NEW_IDEAS], guides=window.SHELF_GUIDES;
+assert.equal(books.length,8); assert.equal(new Set(books.map(b=>b.id)).size,books.length);
+for(const book of books){assert.match(book.id,/^[a-z0-9-]+$/);for(const field of ['title','theme','summary','outcome','time','audience','cover','needs','example','checkpoint'])assert.ok(typeof book[field]==='string'&&book[field].trim(),`${book.id}: ${field}`);assert.equal(book.steps.length,5);assert.ok(book.steps.every(s=>s.title&&s.detail&&s.prompt&&s.task&&s.task.length<=250),book.id);assert.ok(book.ideas.every(id=>ideas.some(i=>i.id===id)),`${book.id}: missing idea`);assert.ok(book.guides.every(id=>guides.some(g=>g.id===id)),`${book.id}: missing guide`);await access(`public/assets/ideas/${book.cover}.webp`);}
+let i=0;const id=()=>`test-${++i}`, book=books[0];
+const original={id:'project-1',name:'My project',description:'Do not change',notes:'Important notes',ideaIds:[book.ideas[0]],tasks:[{id:'existing',text:book.steps[0].task.toUpperCase(),done:true}],plans:[{id:'my-plan',title:'My original plan',text:'Keep this'}]};
+const before=structuredClone(original), result=ShelfPlaybookModel.apply(original,book,id);
+assert.deepEqual(original,before,'Must not mutate the original project');assert.equal(result.project.notes,'Important notes');assert.equal(result.project.description,'Do not change');assert.equal(result.addedIdeas,2);assert.equal(result.addedTasks,4);assert.equal(result.addedPlans,1);assert.equal(result.project.tasks[0].done,true);assert.equal(result.project.plans[0].text,'Keep this');
+const repeated=ShelfPlaybookModel.apply(result.project,book,id);assert.equal(repeated.addedIdeas+repeated.addedTasks+repeated.addedPlans,0,'Applying twice must not duplicate work');assert.deepEqual(repeated.project,result.project);
+const edited={...result.project,plans:result.project.plans.map(plan=>plan.title===`Playbook: ${book.title}`?{...plan,text:'My adapted plan'}:plan)};const again=ShelfPlaybookModel.apply(edited,book,id);assert.equal(again.project.plans.at(-1).text,'My adapted plan','Repeat use must preserve an edited reference plan');
+const restored=ShelfBackup.merge({kind:'the-idea-shelf-backup',version:1,saved:[],notes:{},projects:[edited]},{saved:[],notes:{},projects:[],exercises:{},challenges:[]},{ideas:ideas.map(i=>i.id),guides:guides.map(g=>g.id)});assert.equal(restored.projects[0].plans.at(-1).title,`Playbook: ${book.title}`);assert.equal(restored.projects[0].plans.at(-1).text,'My adapted plan');assert.equal(restored.projects[0].tasks[0].done,true);assert.deepEqual(restored.projects[0].ideaIds,result.project.ideaIds);
+assert.throws(()=>ShelfPlaybookModel.apply(null,book,id),/project/);const malformed={id:'unsafe',name:'Keep me',tasks:{unexpected:'do not overwrite'}};const untouched=structuredClone(malformed);assert.throws(()=>ShelfPlaybookModel.apply(malformed,book,id),/safely/);assert.deepEqual(malformed,untouched,'Unexpected project data must remain untouched');
+console.log('Validated eight playbooks, referenced content, safe project merging, repeat use, and backup compatibility.');
