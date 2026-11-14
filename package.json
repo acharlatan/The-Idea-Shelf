@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "check": "node --check public/app.js && node --check public/experience.js && node --check public/ideas.js && node --check public/new-ideas.js && node --check public/backup.js && node --check public/guides.js && node --check public/v2.js && node --check public/playbooks-data.js && node --check public/playbook-model.js && node --check public/playbooks.js && node scripts/validate-content.mjs && node scripts/validate-v2.mjs && node scripts/test-backup.mjs && node scripts/test-playbooks.mjs",
+    "check": "node --check public/app.js && node --check public/experience.js && node --check public/ideas.js && node --check public/new-ideas.js && node --check public/backup.js && node --check public/guides.js && node --check public/v2.js && node --check public/playbooks-data.js && node --check public/playbook-model.js && node --check public/playbooks.js && node scripts/validate-content.mjs && node scripts/validate-v2.mjs && node scripts/test-backup.mjs && node scripts/test-playbooks.mjs && node --check public/publication.js && node --check public/field-notes-data.js && node scripts/test-publication.mjs",
     "dev": "python3 scripts/dev.py"
   }
 }

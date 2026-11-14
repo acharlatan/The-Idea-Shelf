@@ -20,7 +20,19 @@
     let brief=current.brief,studio=current.studio;
     if(!brief&&object(data.brief)&&typeof data.brief.text==='string'&&data.brief.text.length<10000)brief=data.brief;
     if(!studio&&object(data.studio)&&JSON.stringify(data.studio).length<30000)studio=data.studio;
-    return {saved,notes,projects,exercises,challenges,brief,studio};
+
+    const pub = v => {
+      const out={saved:[],notes:{},experiments:{}};
+      if(!object(v))return out;
+      const valid=id=>typeof id==='string'&&/^[a-z0-9-]{1,100}$/.test(id);
+      out.saved=Array.isArray(v.saved)?[...new Set(v.saved.filter(valid))].slice(0,500):[];
+      if(object(v.notes))for(const [id,n] of Object.entries(v.notes))if(valid(id)&&typeof n==='string')out.notes[id]=n.slice(0,3000);
+      if(object(v.experiments))for(const [id,x] of Object.entries(v.experiments))if(valid(id)&&object(x))out.experiments[id]=Object.fromEntries(['question','change','measure','observations','next'].map(k=>[k,typeof x[k]==='string'?x[k].slice(0,3000):'']));
+      return out;
+    };
+    const prior=pub(current.publication), incoming=pub(data.publication);
+    const publication={saved:[...new Set([...prior.saved,...incoming.saved])],notes:{...incoming.notes,...prior.notes},experiments:{...incoming.experiments,...prior.experiments}};
+    return {saved,notes,projects,exercises,challenges,brief,studio,publication};
   }
   globalThis.ShelfBackup={merge};
 })();

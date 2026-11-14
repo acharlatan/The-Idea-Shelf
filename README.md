@@ -1,6 +1,8 @@
 # The Idea Shelf
 
-A creative home for marketers, makers, and small businesses. The Idea Shelf has 54 practical ideas, eight original field guides, eight practical playbooks, a creative Studio, project boards, and self-guided challenges. The examples are fictional and do not imply campaign results.
+An independent marketing publication for marketers and small teams: four researched campaign breakdowns, twelve real references, a dated briefing, and a practical experiment notebook. See [EDITORIAL.md](EDITORIAL.md) for sources, maintenance, data compatibility and release notes.
+
+The original creative toolkit remains available. The Idea Shelf has 54 practical ideas, eight original field guides, eight practical playbooks, a creative Studio, project boards, and self-guided challenges. Creative exercises use fictional examples. Editorial references identify real subjects and first-party sources, with interpretation and proposed tests clearly distinguished from verified results.
 
 ## Work on it
 
